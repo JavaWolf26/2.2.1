@@ -38,7 +38,7 @@ public class MainApp {
         }
         System.out.println();
 
-        User user = userService.getUserCar("ferrari", 1972);
+        User user = userService.getUserCar("Ferrari", 1972);
         System.out.println(user.toString());
 
         context.close();
