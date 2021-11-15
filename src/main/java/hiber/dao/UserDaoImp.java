@@ -32,17 +32,16 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public User getUser(String model, int series) {
+    public User getUserCar(String model, int series) {
         Query query = sessionFactory.getCurrentSession()
                 .createQuery("from User where car.model = :model and car.series = :series");
-        query.setParameter("model", model);
-        query.setParameter("series", series);
-        return (User) query.setFirstResult(1).getSingleResult();
+        query.setParameter("model", model).setParameter("series", series);
+        return (User) query.setMaxResults(1).getSingleResult();
     }
 
     @Override
     public void clean() {
-        sessionFactory.getCurrentSession().createQuery("delete from User").executeUpdate();
         sessionFactory.getCurrentSession().createQuery("Delete FROM Car").executeUpdate();
+        sessionFactory.getCurrentSession().createQuery("delete from User").executeUpdate();
     }
 }
