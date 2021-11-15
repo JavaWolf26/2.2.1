@@ -80,7 +80,7 @@ public class User {
                 ", lastName = '" + lastName + '\'' +
                 ", email = '" + email + '\'' +
                 ", car.model = " + car.getModel() +
-                ", car.model = " + car.getSeries() +
+                ", car.series = " + car.getSeries() +
                 '}';
     }
 }
