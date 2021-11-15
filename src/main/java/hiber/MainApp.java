@@ -18,11 +18,11 @@ public class MainApp {
         userService.clean();
 
         userService.add(new User("User1", "Lastname1", "user1@mail.ru",
-                new Car("Ferrari", 1970)));
+                new Car("", 0)));
         userService.add(new User("User2", "Lastname2", "user2@mail.ru",
                 new Car("Ford", 1974)));
         userService.add(new User("User3", "Lastname3", "user3@mail.ru",
-                new Car("Pontiac", 1979)));
+                new Car("", 0)));
         userService.add(new User("User4", "Lastname4", "user4@mail.ru",
                 new Car("Toyota", 1973)));
 
@@ -32,7 +32,7 @@ public class MainApp {
         }
         System.out.println();
 
-        User user = userService.getUser("Ford", 1974);
+        User user = userService.getUser("", 0);
         System.out.println(user.toString());
 
         context.close();

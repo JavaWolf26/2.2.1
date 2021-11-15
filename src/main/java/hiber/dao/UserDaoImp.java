@@ -4,7 +4,6 @@ import hiber.model.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -38,7 +37,7 @@ public class UserDaoImp implements UserDao {
                 .createQuery("from User where car.model = :model and car.series = :series");
         query.setParameter("model", model);
         query.setParameter("series", series);
-        return (User) query.getSingleResult();
+        return (User) query.setFirstResult(1).getSingleResult();
     }
 
     @Override
